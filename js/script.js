@@ -25,7 +25,7 @@ const thunderPower = () => {
 
 
 function colision() {
-    
+
 }
 
 const loopGame = setInterval(() => {
@@ -35,7 +35,7 @@ const loopGame = setInterval(() => {
         .bottom.replace("px", "");
     console.log(window.innerWidth);
 
-    if (window.innerWidth > 380) {
+    if (window.innerWidth > 480) {
         if (pipePosition <= 120 && pipePosition > 0 && characterPosition < 80) {
             pipe.style.animation = 'none';
             pipe.style.left = `${pipePosition}px`;
