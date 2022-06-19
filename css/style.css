@@ -7,7 +7,7 @@
 .game {
     width: 100%;
     height: 100vh;
-    border-bottom: 100px solid rgb(24,174,24);
+    border-bottom: 100px solid rgb(24, 174, 24);
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
@@ -36,7 +36,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     bottom: 0;
-    
+
 }
 
 .jump-character {
@@ -54,11 +54,67 @@
 }
 
 .power {
-    position: absolute;   
+    position: absolute;
     opacity: 0;
     width: 300px;
-    bottom: -45px; 
+    bottom: -45px;
     left: -50px;
+}
+
+
+.controls-mobile {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border: 5px solid yellow;
+    border-radius: 50px;
+    left: 50px;
+    top: 50px;
+
+}
+
+.button-mobile {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    margin: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    background: purple;
+    border: 2px solid purple;
+    color: yellow;
+}
+
+.button-mobile:active {
+
+    background: yellow;
+    border: 2px solid yellow;
+    color: purple;
+}
+
+
+@media screen and (max-width:380px) {
+    .character {
+        width: 75px;
+        height: 53px;
+        position: absolute;
+        background-image: url('../images/pikachu.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        bottom: 0;
+
+    }
+
+    .pipe-game {
+        position: absolute;
+        bottom: 0;
+        width: 40px;
+        animation: pipe-animation 1.5s infinite linear;
+    }
+
+   
 }
 
 
@@ -68,10 +124,11 @@
     from {
         right: -80px;
     }
+
     to {
         right: 100%;
     }
-    
+
 }
 
 
@@ -79,57 +136,70 @@
     0% {
         opacity: 0;
     }
+
     10% {
         opacity: 0.2;
     }
+
     20% {
         opacity: 0.3;
     }
+
     50% {
         opacity: 1;
     }
+
     60% {
         opacity: 1;
     }
+
     70% {
         opacity: 0.6;
     }
+
     80% {
         opacity: 0.8;
     }
+
     100% {
         opacity: 0;
     }
-    
+
 }
 
 @keyframes clouds-animation {
     from {
         right: -550px;
     }
+
     to {
         right: 100%;
     }
-    
+
 }
 
 @keyframes jump-animation {
-    0%{
+    0% {
         bottom: 0;
     }
-    40%{
+
+    40% {
         bottom: 180px;
     }
-    50%{
+
+    50% {
         bottom: 180px;
     }
-    60%{
+
+    60% {
         bottom: 180px
     }
-    70%{
+
+    70% {
         bottom: 180px;
     }
-    100%{
+
+    100% {
         bottom: 0%;
     }
 }
