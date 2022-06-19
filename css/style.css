@@ -95,7 +95,7 @@
 }
 
 
-@media screen and (max-width:380px) {
+@media screen and (max-width:480px) {
     .character {
         width: 75px;
         height: 53px;
