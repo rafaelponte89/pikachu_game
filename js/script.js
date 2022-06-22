@@ -35,7 +35,7 @@ const loopGame = function () {
             .bottom.replace("px", "");
             
   
-        if (pipePosition - characterPosition <=0 && counter )  {
+        if (pipePosition - characterPosition <=-120 && counter )  {
             scoreValue += 10;
             score.textContent = scoreValue; 
             counter = false;
@@ -62,7 +62,7 @@ const loopGame = function () {
                 character.style.marginLeft = '45px';
     
                 power.style.animation = 'none';
-                score.textContent = parseInt(scoreValue)-10; 
+                // score.textContent = parseInt(scoreValue)-10; 
                 setTimeout( function() {location.reload()},2000);
                 clearInterval(loopGame);
             }
@@ -81,7 +81,7 @@ const loopGame = function () {
                 character.style.marginLeft = '27.5px';
     
                 power.style.animation = 'none';
-                score.textContent = parseInt(scoreValue)-10; 
+                // score.textContent = parseInt(scoreValue)-10; 
                 setTimeout( function() {location.reload()},2000);
                 clearInterval(loopGame);
                
