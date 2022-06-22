@@ -4,6 +4,8 @@ const power = document.querySelector('#power');
 const cloud = document.querySelector('#cloud-game');
 const game = document.querySelector('.game');
 const score = document.querySelector('.score');
+const powerThunderSound = document.querySelector('#power-thunder-sound');
+const environmentSound = document.querySelector('#environment-sound');
 
 /*Declaração de função anônima*/
 const jump = () => {
@@ -19,7 +21,7 @@ const jump = () => {
 
 const thunderPower = () => {
     power.classList.add('thunder-power');
-
+    powerThunderSound.play();
     setTimeout(() => {
         power.classList.remove('thunder-power');
     }, 3000);
@@ -34,10 +36,7 @@ const loopGame = function () {
             .getComputedStyle(character)
             .bottom.replace("px", "");
 
-
-
-
-
+            //dispositivos com tela maior que 480px
         if (window.innerWidth > 480) {
             if (pipePosition <= 120 && pipePosition > 0 && characterPosition < 80) {
                 pipe.style.animation = 'none';
@@ -52,7 +51,6 @@ const loopGame = function () {
                 character.style.marginLeft = '45px';
 
                 power.style.animation = 'none';
-                // score.textContent = parseInt(scoreValue)-10; 
                 setTimeout(function () { location.reload() }, 2000);
                 clearInterval(loopGame);
             }
@@ -69,6 +67,7 @@ const loopGame = function () {
             }
 
         }
+        //dispositivos com tela menor ou igual que 480px
         else {
             if (pipePosition <= 60 && pipePosition > 0 && characterPosition < 40) {
                 pipe.style.animation = 'none';
@@ -88,7 +87,7 @@ const loopGame = function () {
                 clearInterval(loopGame);
 
             }
-            else if (pipePosition - characterPosition <= -60 && counter) {
+            else if (pipePosition - characterPosition <= -150 && counter) {
                 scoreValue += 10;
                 score.textContent = scoreValue;
                 counter = false;
@@ -121,7 +120,6 @@ const eventoTecla = document.addEventListener('keydown', function (event) {
 
     let tecla = event.code;
 
-
     if (tecla == 'ArrowUp') {
         jump(event);
     }
@@ -143,7 +141,8 @@ startGame.addEventListener('click', function () {
         cloud.setAttribute('class', 'cloud-game');
         game.hidden = false;
         menu.style.display = 'none';
-
+        environmentSound.loop=true;
+        environmentSound.play();
         loopGame();
     }
 
