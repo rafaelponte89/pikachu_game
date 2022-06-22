@@ -3,6 +3,7 @@ const pipe = document.querySelector('#pipe-game');
 const power = document.querySelector('#power');
 const cloud = document.querySelector('#cloud-game');
 const game = document.querySelector('.game');
+const score = document.querySelector('.score');
 
 /*Declaração de função anônima*/
 const jump = () => {
@@ -24,15 +25,29 @@ const thunderPower = () => {
     }, 3000);
 
 };
-
+let scoreValue = 0;
+let counter = true;
 const loopGame = function () {
     const loopGame = setInterval(() => {
         const pipePosition = pipe.offsetLeft;
         const characterPosition = +window
             .getComputedStyle(character)
             .bottom.replace("px", "");
-        console.log(window.innerWidth);
-    
+            
+  
+        if (pipePosition - characterPosition <=0 && counter )  {
+            scoreValue += 10;
+            score.textContent = scoreValue; 
+            counter = false;
+        }
+        else if ( pipePosition - characterPosition >0) {
+            counter = true;
+        }
+        else {
+
+        }
+      
+       
         if (window.innerWidth > 480) {
             if (pipePosition <= 120 && pipePosition > 0 && characterPosition < 80) {
                 pipe.style.animation = 'none';
@@ -47,7 +62,7 @@ const loopGame = function () {
                 character.style.marginLeft = '45px';
     
                 power.style.animation = 'none';
-    
+                score.textContent = parseInt(scoreValue)-10; 
                 setTimeout( function() {location.reload()},2000);
                 clearInterval(loopGame);
             }
@@ -66,13 +81,13 @@ const loopGame = function () {
                 character.style.marginLeft = '27.5px';
     
                 power.style.animation = 'none';
-                
+                score.textContent = parseInt(scoreValue)-10; 
                 setTimeout( function() {location.reload()},2000);
-
-               
                 clearInterval(loopGame);
                
             }
+
+
         }
     }, 10);
     
@@ -92,7 +107,7 @@ controlMobile();
 const eventoTecla = document.addEventListener('keydown', function (event) {
 
     let tecla = event.code;
-    console.log(tecla);
+  
 
     if (tecla == 'ArrowUp') {
         jump(event);
@@ -102,7 +117,7 @@ const eventoTecla = document.addEventListener('keydown', function (event) {
     }
 });
 
-console.log(game.getAttribute('hidden') === null);
+
 const startGame = document.querySelector('#start-game');
 const menu = document.querySelector('#menu');
 
@@ -118,13 +133,6 @@ startGame.addEventListener('click',function(){
  
         loopGame();
     }
-    // else {
-    //     character.removeAttribute('class','character');
-    //     power.removeAttribute('class','power');
-    //     pipe.removeAttribute('class','pipe-game');
-    //     cloud.remove('class','cloud-game');
-    //     game.hidden=true;
-        
-    // }
+ 
 });
 

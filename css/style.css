@@ -18,6 +18,28 @@ body {
     
 }
 
+.score-container {
+    position:absolute;
+    width: 200px;
+    height: 40px;
+    font-size: 22px;
+    border: 2px dashed azure;
+    border-radius:  50px;
+    color: yellow;
+
+  
+}
+.score {
+    font-size: 28px;
+    color:azure;
+    font-weight: 900;
+}
+
+
+.night-day {
+    animation: night 10s linear infinite alternate;
+    z-index: -1;
+}
 .sunny-day {
     width: 100%;
     height: 100vh;
@@ -25,8 +47,8 @@ body {
     position: absolute;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
-    animation: night 60s linear infinite alternate;
-    z-index: -1;
+    
+   
 }
 
 #menu {
@@ -174,6 +196,8 @@ h1 {
   
     0% {
         background-image: url('../images/night.jpg');
+        background-size: contain;
+        
         opacity: 0;
     }
 

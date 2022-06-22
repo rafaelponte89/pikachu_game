@@ -25,10 +25,10 @@
         </div>
     </nav>
 
-    <div class="game" hidden>
+    <main class="game" hidden>
         <img src="./images/clouds-gamer.png" id="cloud-game">
 
-        <div id="weather-game" class="sunny-day"></div>
+        <div id="weather-game" class="sunny-day night-day"></div>
 
         <div class="character" id="character">
             <!-- <img src="./images/pikachu.gif" class="character"> -->
@@ -36,13 +36,16 @@
         </div>
         <img src="./images/pipe-game.png" id="pipe-game">
 
+        <div class="score-container">
+                <p>Score: <span class="score">0 </span></p>
+        </div>
         <div class="controls-mobile">
             <button type="button" class="button-mobile" id="jump">Pular</button>
             <button type="button" class="button-mobile" id="thunder">Raio</button>
 
         </div>
 
-    </div>
+    </main>
 
     <script src="js/script.js"></script>
 </body>
