@@ -7,6 +7,7 @@ const score = document.querySelector('.score');
 const powerThunderSound = document.querySelector('#power-thunder-sound');
 const environmentSound = document.querySelector('#environment-sound');
 
+
 /*Declaração de função anônima*/
 const jump = () => {
 
@@ -106,16 +107,17 @@ const loopGame = function () {
 }
 
 
-
+// painel de controle mobile
 function controlMobile() {
     const pulo = document.getElementById('jump');
     const raio = document.getElementById('thunder');
     pulo.addEventListener('click', jump, false);
     raio.addEventListener('click', thunderPower, false);
 }
-
 controlMobile();
 
+
+// identificação da tecla que apertou
 const eventoTecla = document.addEventListener('keydown', function (event) {
 
     let tecla = event.code;
@@ -129,8 +131,10 @@ const eventoTecla = document.addEventListener('keydown', function (event) {
 });
 
 
+// Menu
 const startGame = document.querySelector('#start-game');
 const menu = document.querySelector('#menu');
+const instrucion = document.querySelector('#instruction-button');
 
 startGame.addEventListener('click', function () {
 
@@ -146,5 +150,18 @@ startGame.addEventListener('click', function () {
         loopGame();
     }
 
+});
+
+instrucion.addEventListener('click', function() {
+    let information = document.getElementById('instruction');
+    let visible_obj = information.style.visibility;
+   
+    if (visible_obj === 'visible') {
+        information.style.visibility ='hidden';
+    }
+    else {
+        information.style.visibility ='visible';
+    }
+   
 });
 

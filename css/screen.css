@@ -1,0 +1,24 @@
+@media screen and (max-width:480px) {
+    .character {
+        width: 75px;
+        height: 53px;
+        position: absolute;
+        background-image: url('../images/pikachu.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        bottom: 0;
+
+    }
+
+    .pipe-game {
+        position: absolute;
+        bottom: 0;
+        width: 40px;
+        animation: pipe-animation 1.5s infinite linear;
+    } 
+
+    .controls-mobile {
+        display: block;
+    }
+
+}

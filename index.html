@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/screen.css">
+    <link rel="stylesheet" href="./css/animation.css">
+    
     <title>Pikachu Game</title>
 </head>
 
@@ -15,14 +18,30 @@
     <nav id="menu">
 
         <header>
-            <h1>Sart Game</h1>
+            <h1>Menu Game</h1>
         </header>
         <ul>
             <li><button id="start-game">➲</button></li>
+            <li><button id="instruction-button">⚠</button></li>
         </ul>
-        <div id="background-menu">
+        <section id="instruction">
+            <header>
+                <h2>Comandos no Computador</h2>
+            </header>
+            <ul>
+                <li>Seta para cima: pulo.</li>
+                <li>Enter: choque do trovão.</li>
+            </ul>
+            <header>
+                <h2>Comandos no Dispositivo Móvel</h2>
+            </header>
+            <ul>
+                <li>Usar o painel de comando disponível.</li>
+            </ul>
+        </section>
+        <section id="background-menu">
 
-        </div>
+        </section>
     </nav>
 
     <main class="game" hidden>
@@ -32,7 +51,7 @@
         </audio>
 
         <audio id="power-thunder-sound">
-            <source  src="sounds/sound_power_thunder.mp3" type="audio/mp3">
+            <source src="sounds/sound_power_thunder.mp3" type="audio/mp3">
         </audio>
 
         <img src="./images/clouds-gamer.png" id="cloud-game">
@@ -46,7 +65,7 @@
         <img src="./images/pipe-game.png" id="pipe-game">
 
         <div class="score-container">
-                <p>Score: <span class="score">0 </span></p>
+            <p>Score: <span class="score">0 </span></p>
         </div>
         <div class="controls-mobile">
             <button type="button" class="button-mobile" id="jump">Pular</button>
