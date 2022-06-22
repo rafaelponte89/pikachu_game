@@ -33,64 +33,77 @@ const loopGame = function () {
         const characterPosition = +window
             .getComputedStyle(character)
             .bottom.replace("px", "");
-            
-  
-        if (pipePosition - characterPosition <=-120 && counter )  {
-            scoreValue += 10;
-            score.textContent = scoreValue; 
-            counter = false;
-        }
-        else if ( pipePosition - characterPosition >0) {
-            counter = true;
-        }
-        else {
 
-        }
-      
-       
+
+
+
+
         if (window.innerWidth > 480) {
             if (pipePosition <= 120 && pipePosition > 0 && characterPosition < 80) {
                 pipe.style.animation = 'none';
                 pipe.style.left = `${pipePosition}px`;
-    
+
                 character.style.animation = 'none';
                 character.style.bottom = `${characterPosition}px`;
-    
+
                 character.style.backgroundImage = 'url("./images/pikachu-defeated.png")';
-    
+
                 character.style.width = '100px';
                 character.style.marginLeft = '45px';
-    
+
                 power.style.animation = 'none';
                 // score.textContent = parseInt(scoreValue)-10; 
-                setTimeout( function() {location.reload()},2000);
+                setTimeout(function () { location.reload() }, 2000);
                 clearInterval(loopGame);
             }
+            else if (pipePosition - characterPosition <= -120 && counter) {
+                scoreValue += 10;
+                score.textContent = scoreValue;
+                counter = false;
+            }
+            else if (pipePosition - characterPosition > 0) {
+                counter = true;
+            }
+            else {
+
+            }
+
         }
         else {
             if (pipePosition <= 60 && pipePosition > 0 && characterPosition < 40) {
                 pipe.style.animation = 'none';
                 pipe.style.left = `${pipePosition}px`;
-    
+
                 character.style.animation = 'none';
                 character.style.bottom = `${characterPosition}px`;
-    
+
                 character.style.backgroundImage = 'url("./images/pikachu-defeated.png")';
-    
+
                 character.style.width = '50px';
                 character.style.marginLeft = '27.5px';
-    
+
                 power.style.animation = 'none';
                 // score.textContent = parseInt(scoreValue)-10; 
-                setTimeout( function() {location.reload()},2000);
+                setTimeout(function () { location.reload() }, 2000);
                 clearInterval(loopGame);
-               
+
+            }
+            else if (pipePosition - characterPosition <= -60 && counter) {
+                scoreValue += 10;
+                score.textContent = scoreValue;
+                counter = false;
+            }
+            else if (pipePosition - characterPosition > 0) {
+                counter = true;
+            }
+            else {
+
             }
 
 
         }
     }, 10);
-    
+
 }
 
 
@@ -107,7 +120,7 @@ controlMobile();
 const eventoTecla = document.addEventListener('keydown', function (event) {
 
     let tecla = event.code;
-  
+
 
     if (tecla == 'ArrowUp') {
         jump(event);
@@ -121,18 +134,18 @@ const eventoTecla = document.addEventListener('keydown', function (event) {
 const startGame = document.querySelector('#start-game');
 const menu = document.querySelector('#menu');
 
-startGame.addEventListener('click',function(){
+startGame.addEventListener('click', function () {
 
-    if(game.getAttribute('hidden') !== null) {
-        character.setAttribute('class','character');
-        power.setAttribute('class','power');
-        pipe.setAttribute('class','pipe-game');
-        cloud.setAttribute('class','cloud-game');
+    if (game.getAttribute('hidden') !== null) {
+        character.setAttribute('class', 'character');
+        power.setAttribute('class', 'power');
+        pipe.setAttribute('class', 'pipe-game');
+        cloud.setAttribute('class', 'cloud-game');
         game.hidden = false;
         menu.style.display = 'none';
- 
+
         loopGame();
     }
- 
+
 });
 
